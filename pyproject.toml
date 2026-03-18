@@ -1,0 +1,36 @@
+[project]
+name = "nba-draft-success"
+version = "0.1.0"
+description = "Predict NBA draft round from career stats (reproducible, offline-first)."
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+  "beautifulsoup4>=4.12",
+  "lxml>=5.0",
+  "numpy>=1.23",
+  "pandas>=1.5",
+  "progressbar2>=4.4",
+  "requests>=2.31",
+  "scikit-learn>=1.2",
+]
+
+[project.scripts]
+nba-draft-success = "nba_draft_success.cli:main"
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["E501"]
